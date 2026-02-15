@@ -378,7 +378,7 @@ export default function Home() {
               <div className="p-4">
                 <div className="text-center">
                   <p className="text-lg font-semibold">{profile?.username || "Usuário"}</p>
-                  <p className="text-gray-500 mt-2">{profile?.email}</p>
+                  <p className="text-gray-500 mt-2">{user?.email}</p>
                   {profile?.bio && <p className="mt-4">{profile.bio}</p>}
                 </div>
               </div>
