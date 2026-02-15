@@ -331,6 +331,16 @@ export default function Home() {
           <Sidebar user={profile} onSignOut={handleSignOut} activePage={currentPage} onNavClick={setCurrentPage} />
           <main className="min-h-screen w-full border-x border-zinc-200 bg-white dark:border-zinc-800 dark:bg-black">
             <Header onRefresh={loadTweets} />
+            {!user && (
+              <div className="border-b border-zinc-200 p-4 dark:border-zinc-800 xl:hidden">
+                <AuthPanel
+                  loading={authLoading}
+                  onSignIn={handleSignIn}
+                  onSignUp={handleSignUp}
+                  error={authError}
+                />
+              </div>
+            )}
             {currentPage === "Início" ? (
               <>
                 <ComposeTweet
