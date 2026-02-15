@@ -40,7 +40,10 @@ export default function Home() {
       return;
     }
 
-    let hydrated = (data as Tweet[]) ?? [];
+    let hydrated = (data as any[])?.map((t) => ({
+      ...t,
+      profile: Array.isArray(t.profile) ? t.profile[0] : t.profile,
+    })) as Tweet[] ?? [];
 
     if (user) {
       const tweetIds = hydrated.map((tweet) => tweet.id);
