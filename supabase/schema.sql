@@ -59,12 +59,38 @@ select
   (select count(*) from comments c where c.tweet_id = t.id) as comments_count
 from tweets t;
 
+grant select on tweets_with_counts to anon, authenticated;
+
 alter table profiles enable row level security;
 alter table tweets enable row level security;
 alter table likes enable row level security;
 alter table retweets enable row level security;
 alter table comments enable row level security;
 alter table follows enable row level security;
+
+drop policy if exists "Profiles are viewable by everyone" on profiles;
+drop policy if exists "Users can manage own profile" on profiles;
+
+drop policy if exists "Tweets are viewable by everyone" on tweets;
+drop policy if exists "Users can create tweets" on tweets;
+drop policy if exists "Users can update own tweets" on tweets;
+drop policy if exists "Users can delete own tweets" on tweets;
+
+drop policy if exists "Likes are viewable by everyone" on likes;
+drop policy if exists "Users can like" on likes;
+drop policy if exists "Users can unlike" on likes;
+
+drop policy if exists "Retweets are viewable by everyone" on retweets;
+drop policy if exists "Users can retweet" on retweets;
+drop policy if exists "Users can unretweet" on retweets;
+
+drop policy if exists "Comments are viewable by everyone" on comments;
+drop policy if exists "Users can comment" on comments;
+drop policy if exists "Users can delete own comments" on comments;
+
+drop policy if exists "Follows are viewable by everyone" on follows;
+drop policy if exists "Users can follow" on follows;
+drop policy if exists "Users can unfollow" on follows;
 
 create policy "Profiles are viewable by everyone" on profiles
   for select using (true);

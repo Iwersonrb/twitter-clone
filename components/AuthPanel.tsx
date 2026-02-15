@@ -30,23 +30,27 @@ export function AuthPanel({ loading, onSignIn, onSignUp, error }: AuthPanelProps
       </p>
       <form className="mt-4 space-y-3" onSubmit={handleSignIn}>
         <input
+          id="email"
+          name="email"
           type="email"
           placeholder="Email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="w-full rounded-lg border border-zinc-200 bg-transparent px-3 py-2 text-sm text-zinc-900 outline-none focus:border-sky-500 dark:border-zinc-700 dark:text-zinc-100"
+          className="w-full rounded-lg border border-zinc-200 bg-transparent px-3 py-2 text-sm text-zinc-900 outline-none focus:border-emerald-500 dark:border-zinc-700 dark:text-zinc-100"
           required
         />
         <input
+          id="password"
+          name="password"
           type="password"
           placeholder="Senha"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
-          className="w-full rounded-lg border border-zinc-200 bg-transparent px-3 py-2 text-sm text-zinc-900 outline-none focus:border-sky-500 dark:border-zinc-700 dark:text-zinc-100"
+          className="w-full rounded-lg border border-zinc-200 bg-transparent px-3 py-2 text-sm text-zinc-900 outline-none focus:border-emerald-500 dark:border-zinc-700 dark:text-zinc-100"
           required
         />
         <button
-          className="w-full rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-white transition disabled:opacity-60"
+          className="w-full rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-white transition disabled:opacity-60"
           disabled={loading}
           type="submit"
         >

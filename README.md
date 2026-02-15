@@ -1,6 +1,6 @@
-## Twitter Clone
+## Pulse
 
-Clone do Twitter com Next.js 14 (App Router), TypeScript, Supabase e TailwindCSS.
+Rede social Pulse com Next.js 14 (App Router), TypeScript, Supabase e TailwindCSS.
 
 ### Stack
 - Next.js 14 (App Router)

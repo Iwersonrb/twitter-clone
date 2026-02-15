@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Twitter Clone",
-  description: "Clone do Twitter com Next.js, Supabase e TailwindCSS",
+  title: "Pulse",
+  description: "Rede social Pulse com Next.js, Supabase e TailwindCSS",
 };
 
 export default function RootLayout({
@@ -24,6 +24,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Suprime erros de extensões de navegador
+              window.addEventListener('error', function(e) {
+                if (e.message && e.message.includes('chain is not set up')) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  return false;
+                }
+              }, true);
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

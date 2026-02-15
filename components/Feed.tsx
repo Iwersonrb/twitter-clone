@@ -7,9 +7,23 @@ type FeedProps = {
   tweets: Tweet[];
   loading: boolean;
   error?: string | null;
+  canInteract: boolean;
+  isBusy: boolean;
+  onLike: (tweet: Tweet) => Promise<void>;
+  onRetweet: (tweet: Tweet) => Promise<void>;
+  onComment: (tweet: Tweet, content: string) => Promise<void>;
 };
 
-export function Feed({ tweets, loading, error }: FeedProps) {
+export function Feed({
+  tweets,
+  loading,
+  error,
+  canInteract,
+  isBusy,
+  onLike,
+  onRetweet,
+  onComment,
+}: FeedProps) {
   return (
     <section>
       {loading ? (
@@ -24,7 +38,15 @@ export function Feed({ tweets, loading, error }: FeedProps) {
         </div>
       ) : null}
       {tweets.map((tweet) => (
-        <TweetCard key={tweet.id} tweet={tweet} />
+        <TweetCard
+          key={tweet.id}
+          tweet={tweet}
+          canInteract={canInteract}
+          isBusy={isBusy}
+          onLike={onLike}
+          onRetweet={onRetweet}
+          onComment={onComment}
+        />
       ))}
     </section>
   );

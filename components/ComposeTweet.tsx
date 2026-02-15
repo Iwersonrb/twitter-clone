@@ -39,7 +39,9 @@ export function ComposeTweet({
         />
         <div className="flex-1">
           <textarea
-            className="min-h-[96px] w-full resize-none rounded-2xl border border-zinc-200 bg-transparent px-4 py-3 text-sm text-zinc-900 outline-none focus:border-sky-500 disabled:opacity-60 dark:border-zinc-800 dark:text-zinc-100"
+            id="tweet-content"
+            name="content"
+            className="min-h-[96px] w-full resize-none rounded-2xl border border-zinc-200 bg-transparent px-4 py-3 text-sm text-zinc-900 outline-none focus:border-emerald-500 disabled:opacity-60 dark:border-zinc-800 dark:text-zinc-100"
             placeholder={
               user ? "O que está acontecendo?" : "Faça login para publicar"
             }
@@ -53,11 +55,11 @@ export function ComposeTweet({
               {user ? `${remaining} caracteres restantes` : "Autentique para publicar"}
             </span>
             <button
-              className="rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
+              className="rounded-full bg-emerald-500 px-5 py-2 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60"
               disabled={isDisabled}
               type="submit"
             >
-              {isSubmitting ? "Enviando..." : "Tweetar"}
+              {isSubmitting ? "Enviando..." : "Publicar"}
             </button>
           </div>
         </div>
